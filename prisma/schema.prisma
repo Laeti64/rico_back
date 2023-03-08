@@ -14,12 +14,12 @@ model User {
   id        String   @id @unique @default(cuid())
   firstName String
   lastName  String
-  telephone String
+  telephone String?
   email     String   @unique
   password  String
-  adress    String
-  town      String
-  zipCode   String
+  adress    String?
+  town      String?
+  zipCode   String?
   role      Role     @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -37,7 +37,7 @@ model Ticket {
   id          String     @id @unique @default(cuid())
   title       String
   description String
-  deadline    DateTime
+  deadline    DateTime?
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
   author      User       @relation(fields: [authorId], references: [id])
