@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @unique @default(cuid())
+  firstName String
+  lastName  String
+  telephone String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tickets   Ticket[]
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+model Ticket {
+  id          String     @id @unique @default(cuid())
+  title       String
+  description String
+  deadline    DateTime
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  author      User       @relation(fields: [authorId], references: [id])
+  authorId    String
+  categories  Category[]
+  status      Status[]
+}
+
+model Status {
+  id      String   @id @unique @default(cuid())
+  name    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tickets Ticket[]
+}
+
+model Category {
+  id      String   @id @unique @default(cuid())
+  name    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tickets Ticket[]
+  photos  Photo[]
+}
+
+model Photo {
+  id         String         @id @unique @default(cuid())
+  url        String
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+  categories Category[]
+  galleries  PhotoGallery[]
+}
+
+model PhotoGallery {
+  id     String  @id @unique @default(cuid())
+  name   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  photos Photo[]
+}
+
