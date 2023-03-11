@@ -1,7 +1,8 @@
-import { Ticket } from "@prisma/client";
+import { Status, Ticket } from "@prisma/client";
 import { RequestHandler } from "express";
 import { JwtPayload } from "jsonwebtoken";
 import {
+  StatusBody,
   TicketBody,
   TicketToUpdate,
   UserBodyClient,
@@ -61,4 +62,12 @@ export interface TicketHandler {
     TicketToUpdate,
     null
   >;
+}
+
+export interface StatusHandler {
+  getAll: RequestHandler<null, Status[] | Response, null, null>;
+  getOne: RequestHandler<{ id: string }, Status | Response, null, null>;
+  create: RequestHandler<null, Status | Response, StatusBody, null>;
+  delete: RequestHandler<{ id: string }, Response, null, null>;
+  update: RequestHandler<{ id: string }, Status | Response, StatusBody, null>;
 }

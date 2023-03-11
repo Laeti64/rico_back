@@ -20,3 +20,7 @@ export type UserLogin = {
 
 export type TicketBody = Omit<Ticket, "id" | "createdAt" | "updatedAt">;
 export type TicketToUpdate = Partial<TicketBody>;
+
+export type StatusBody = {
+  name: string;
+};
