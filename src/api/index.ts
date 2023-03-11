@@ -6,6 +6,7 @@ import StatusRoutes from "./status/routes";
 import CategoriesRoutes from "./categories/routes";
 import PhotoGalleriesRoutes from "./photoGalleries/routes";
 import PhotosRoutes from "./photos/routes";
+import CommentsRoutes from "./comments/routes";
 
 const router = Router();
 
@@ -16,5 +17,6 @@ router.use("/status", StatusRoutes);
 router.use("/categories", CategoriesRoutes);
 router.use("/photoGalleries", PhotoGalleriesRoutes);
 router.use("/photos", PhotosRoutes);
+router.use("/comments", CommentsRoutes);
 
 export default router;
