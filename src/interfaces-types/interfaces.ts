@@ -1,6 +1,9 @@
+import { Ticket } from "@prisma/client";
 import { RequestHandler } from "express";
 import { JwtPayload } from "jsonwebtoken";
 import {
+  TicketBody,
+  TicketToUpdate,
   UserBodyClient,
   UserLogin,
   UserToUpdateAdmin,
@@ -45,4 +48,17 @@ export interface AuthHandler {
   >;
   signout: RequestHandler<null, Response, null, null>;
   me: RequestHandler<Record<any, string>, JwtPayload | Response>;
+}
+
+export interface TicketHandler {
+  getAll: RequestHandler<null, Ticket[] | Response, null, null>;
+  getOne: RequestHandler<{ id: string }, Ticket | Response, null, null>;
+  create: RequestHandler<null, Ticket | Response, TicketBody, null>;
+  delete: RequestHandler<{ id: string }, Response, null, null>;
+  update: RequestHandler<
+    { id: string },
+    Ticket | Response,
+    TicketToUpdate,
+    null
+  >;
 }
