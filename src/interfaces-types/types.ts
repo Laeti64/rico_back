@@ -28,3 +28,7 @@ export type StatusBody = {
 export type CategoryBody = {
   name: string;
 };
+
+export type PhotoGalleryBody = {
+  name: string;
+};
