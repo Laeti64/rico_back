@@ -10,3 +10,36 @@ Host: localhost:4000
 ###
 DELETE /api/v1/users/clezs08z50002ik8w479kw8to HTTP/1.1
 Host: localhost:4000
+
+###
+//UPDATE
+PUT /api/v1/users/clezrzn0q0000ik8wknio6zc3 HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+Content-Length: 213
+
+    {
+        "email": "pupuce@gmail.com",
+        "firstName": "pupuce",
+        "lastName": "test",
+        "telephone": null,
+        "adress": null,
+        "town": null,
+        "zipCode": null,
+    }
+
+###
+POST /api/v1/auth/signup HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+
+    {
+        "firstName": "Laeti2",
+        "lastName": "Puce2",
+        "email": "Laeti2@gmail.com",
+        "telephone": "0612345678",
+        "adress": "at home",
+        "town": "biarritz",
+        "zipCode": "64200",
+        "password": "pouet"
+    }

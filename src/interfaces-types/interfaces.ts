@@ -1,7 +1,9 @@
 import { RequestHandler } from "express";
 import {
+  UserBodyClient,
+  UserLogin,
   UserToUpdateAdmin,
-  UserToUpdateClient,
+  UserUpdateClient,
   UserWithoutPassword,
 } from "./types";
 
@@ -21,7 +23,7 @@ export interface UserHandler {
   updateClient: RequestHandler<
     { id: string },
     UserWithoutPassword | Response,
-    UserToUpdateClient,
+    UserUpdateClient,
     null
   >;
   updateAdmin: RequestHandler<
@@ -30,4 +32,15 @@ export interface UserHandler {
     UserToUpdateAdmin,
     null
   >;
+}
+
+export interface AuthHandler {
+  signin: RequestHandler<null, UserWithoutPassword | Response, UserLogin, null>;
+  signup: RequestHandler<
+    null,
+    UserWithoutPassword | Response,
+    UserBodyClient,
+    null
+  >;
+  signout: RequestHandler<null, Response, null, null>;
 }
