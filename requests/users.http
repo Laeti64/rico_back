@@ -1,0 +1,12 @@
+//GET ALL
+GET /api/v1/users HTTP/1.1
+Host: localhost:4000
+
+###
+//GETONE
+GET /api/v1/users/clezrzn0q0000ik8wknio6zc3 HTTP/1.1
+Host: localhost:4000
+
+###
+DELETE /api/v1/users/clezs08z50002ik8w479kw8to HTTP/1.1
+Host: localhost:4000
