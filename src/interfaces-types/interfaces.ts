@@ -1,8 +1,9 @@
-import { Category, Status, Ticket } from "@prisma/client";
+import { Category, PhotoGallery, Status, Ticket } from "@prisma/client";
 import { RequestHandler } from "express";
 import { JwtPayload } from "jsonwebtoken";
 import {
   CategoryBody,
+  PhotoGalleryBody,
   StatusBody,
   TicketBody,
   TicketToUpdate,
@@ -82,6 +83,19 @@ export interface CategoryHandler {
     { id: string },
     Category | Response,
     CategoryBody,
+    null
+  >;
+}
+
+export interface PhotoGalleryHandler {
+  getAll: RequestHandler<null, PhotoGallery[] | Response, null, null>;
+  getOne: RequestHandler<{ id: string }, PhotoGallery | Response, null, null>;
+  create: RequestHandler<null, PhotoGallery | Response, PhotoGalleryBody, null>;
+  delete: RequestHandler<{ id: string }, Response, null, null>;
+  update: RequestHandler<
+    { id: string },
+    PhotoGallery | Response,
+    PhotoGalleryBody,
     null
   >;
 }
