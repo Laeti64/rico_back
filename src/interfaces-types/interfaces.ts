@@ -1,4 +1,5 @@
 import { RequestHandler } from "express";
+import { JwtPayload } from "jsonwebtoken";
 import {
   UserBodyClient,
   UserLogin,
@@ -43,4 +44,5 @@ export interface AuthHandler {
     null
   >;
   signout: RequestHandler<null, Response, null, null>;
+  me: RequestHandler<Record<any, string>, JwtPayload | Response>;
 }
