@@ -1,4 +1,4 @@
-import { Ticket, User } from "@prisma/client";
+import { Photo, Ticket, User } from "@prisma/client";
 
 export type UserWithoutPassword = Omit<User, "password">;
 export type UserUpdateClient = Partial<
@@ -32,3 +32,5 @@ export type CategoryBody = {
 export type PhotoGalleryBody = {
   name: string;
 };
+
+export type PhotoBody = Omit<Photo, "id" | "createdAt" | "updatedAt">;

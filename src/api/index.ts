@@ -5,6 +5,7 @@ import TicketsRoutes from "./tickets/routes";
 import StatusRoutes from "./status/routes";
 import CategoriesRoutes from "./categories/routes";
 import PhotoGalleriesRoutes from "./photoGalleries/routes";
+import PhotosRoutes from "./photos/routes";
 
 const router = Router();
 
@@ -14,5 +15,6 @@ router.use("/tickets", TicketsRoutes);
 router.use("/status", StatusRoutes);
 router.use("/categories", CategoriesRoutes);
 router.use("/photoGalleries", PhotoGalleriesRoutes);
+router.use("/photos", PhotosRoutes);
 
 export default router;
