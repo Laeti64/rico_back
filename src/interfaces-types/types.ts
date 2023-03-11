@@ -1,4 +1,4 @@
-import { User } from "@prisma/client";
+import { Ticket, User } from "@prisma/client";
 
 export type UserWithoutPassword = Omit<User, "password">;
 export type UserUpdateClient = Partial<
@@ -17,3 +17,6 @@ export type UserLogin = {
   email: string;
   password: string;
 };
+
+export type TicketBody = Omit<Ticket, "id" | "createdAt" | "updatedAt">;
+export type TicketToUpdate = Partial<TicketBody>;
