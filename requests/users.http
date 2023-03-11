@@ -55,3 +55,8 @@ Content-Type: application/json
     "email": "pupuce@gmail.com",
     "password": "pouet"
 }
+
+###
+//SIGNOUT
+POST /api/v1/auth/signout HTTP/1.1
+Host: localhost:4000
