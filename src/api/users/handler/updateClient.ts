@@ -39,3 +39,5 @@ const updateClient: UserHandler["updateClient"] = async (req, res) => {
     res.status(500).json({ message: "Internal server error while updating" });
   }
 };
+
+export default updateClient;
