@@ -3,7 +3,11 @@ import { StatusHandler } from "../../../interfaces-types/interfaces";
 
 const getAllStatus: StatusHandler["getAll"] = async (req, res) => {
   try {
-    const status = await prisma.status.findMany();
+    const status = await prisma.status.findMany({
+      include: {
+        tickets: true,
+      },
+    });
     res.status(200).json(status);
   } catch (error) {
     res.status(500).json({ message: error });
