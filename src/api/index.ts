@@ -3,6 +3,7 @@ import UsersRoutes from "./users/routes";
 import AuthRoutes from "./auth/routes";
 import TicketsRoutes from "./tickets/routes";
 import StatusRoutes from "./status/routes";
+import CategoriesRoutes from "./categories/routes";
 
 const router = Router();
 
@@ -10,5 +11,6 @@ router.use("/users", UsersRoutes);
 router.use("/auth", AuthRoutes);
 router.use("/tickets", TicketsRoutes);
 router.use("/status", StatusRoutes);
+router.use("/categories", CategoriesRoutes);
 
 export default router;

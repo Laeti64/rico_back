@@ -24,3 +24,7 @@ export type TicketToUpdate = Partial<TicketBody>;
 export type StatusBody = {
   name: string;
 };
+
+export type CategoryBody = {
+  name: string;
+};
