@@ -4,7 +4,7 @@ import create from "./handler/create";
 import update from "./handler/update";
 import delete_ from "./handler/delete";
 
-const statusController = {
+const categoryController = {
   getAll,
   getOne,
   create,
@@ -12,4 +12,4 @@ const statusController = {
   delete: delete_,
 };
 
-export default statusController;
+export default categoryController;
