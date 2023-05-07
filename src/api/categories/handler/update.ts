@@ -3,11 +3,11 @@ import { CategoryHandler } from "../../../interfaces-types/interfaces";
 
 const updateCategory: CategoryHandler["update"] = async (req, res) => {
   const { id } = req.params;
-  const { name } = req.body;
+  const { name, description, price, thumbnail } = req.body;
   try {
     const category = await prisma.category.update({
       where: { id },
-      data: { name },
+      data: { name, description, price, thumbnail },
     });
     if (!category)
       return res.status(404).json({ message: "category not found" });

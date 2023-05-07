@@ -2,11 +2,14 @@ import prisma from "../../../../prisma/client";
 import { CategoryHandler } from "../../../interfaces-types/interfaces";
 
 const createCategory: CategoryHandler["create"] = async (req, res) => {
-  const { name } = req.body;
+  const { name, description, price, thumbnail } = req.body;
   try {
     const category = await prisma.category.create({
       data: {
         name,
+        description,
+        price,
+        thumbnail,
       },
     });
     res.status(200).json(category);
